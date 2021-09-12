@@ -1,0 +1,44 @@
+[[package]]
+name = "future"
+version = "0.18.2"
+description = "Clean single-source support for Python 3 and 2"
+category = "main"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "pysimplegui"
+version = "4.47.0"
+description = "Python GUIs for Humans. Launched in 2018. It's 2021 & PySimpleGUI is an ACTIVE & supported project. Super-simple to create custom GUI's. 300 Demo programs & Cookbook for rapid start. Extensive documentation. Main docs at www.PySimpleGUI.org. Fun & your success are the focus. Examples using Machine Learning (GUI, OpenCV Integration), Rainmeter Style Desktop Widgets, Matplotlib + Pyplot, PIL support, add GUI to command line scripts, PDF & Image Viewers. Great for beginners & advanced GUI programmers"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pysimplegui27"
+version = "2.4.1"
+description = "Python 2.7 version of PySimpleGUI - GUI SDK Launched in 2018 Actively developed and supported. Super-simple to create custom GUI's.  Python 2.7 & 3 Support. 100 Demo programs & Cookbook for rapid start. Extensive documentation. Examples using Machine Learning(GUI, OpenCV Integration,  Chatterbot), Rainmeter Style Floating Desktop Widgets, Matplotlib + Pyplot integration, add GUI to command line scripts, PDF & Image Viewer. Great for beginners as well as advanced GUI programmers"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+future = "*"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.8"
+content-hash = "f9cb1806ca8b0f1ab681e449547b4855f62bbf5ba22d10012317cc21f4f59b2f"
+
+[metadata.files]
+future = [
+    {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
+]
+pysimplegui = [
+    {file = "PySimpleGUI-4.47.0-py3-none-any.whl", hash = "sha256:5cd3a8395536019343956d1f87c5adb78b9eee632827500bb07784c77463db44"},
+    {file = "PySimpleGUI-4.47.0.tar.gz", hash = "sha256:36a7154ec018c8c56223f484ea9705548ab55dab7817dbe735ae51f4f5cd1652"},
+]
+pysimplegui27 = [
+    {file = "PySimpleGUI27-2.4.1-py3-none-any.whl", hash = "sha256:da179c2e7950f8d6fdf11afcc51871157c1df12e17c727cbc753a4665b7c2cc1"},
+    {file = "PySimpleGUI27-2.4.1.tar.gz", hash = "sha256:b7f91c73199cc5bbf121a0950be7745188ab297f89f11c0e4e1478dbbeb648c4"},
+]
