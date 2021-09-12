@@ -1,0 +1,1 @@
+#This is just a test to gather a bunch of user input through a gui. there are lots of functions and modules i have made to practice with. the goal is to take user data then send it into a database for further processing etc.
