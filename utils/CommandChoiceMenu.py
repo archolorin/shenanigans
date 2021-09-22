@@ -16,13 +16,13 @@ class CommandMenu:
         flags = [ 
                   ##__Execution Area__##
                   [sg.Frame('Command Configuration',
-                    [[sg.Text('Order:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 6)], initial_value=None, size=(6, 1), key='Order#'),
-                      sg.Text('Cat:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 10)], initial_value=0, size=(6, 1), key='Category')],
-                    [sg.Text('Edict:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 1000)], initial_value=0, size=(6, 1), key='Edict#'), 
-                      sg.Text('Priority:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 1000)], initial_value=0, size=(6, 1), key='Priority')],
-                    [sg.Text('Protocol:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 1000)], initial_value=0, size=(6, 1), key='Protocol#'), 
-                      sg.Text('Auth:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 10)], initial_value=0, size=(6, 1), key='Auth')],
-                    [sg.Text('Stage:', size=(8, 1)), sg.Spin(values=[i for i in range(0, 10)], initial_value=0, size=(6, 1), key='Stage'), 
+                    [[sg.Text('Order:', size=(8, 1)), sg.Spin(values=list(range(0, 6)), initial_value=None, size=(6, 1), key='Order#'),
+                      sg.Text('Cat:', size=(8, 1)), sg.Spin(values=list(range(0, 10)), initial_value=0, size=(6, 1), key='Category')],
+                    [sg.Text('Edict:', size=(8, 1)), sg.Spin(values=list(range(0, 1000)), initial_value=0, size=(6, 1), key='Edict#'), 
+                      sg.Text('Priority:', size=(8, 1)), sg.Spin(values=list(range(0, 1000)), initial_value=0, size=(6, 1), key='Priority')],
+                    [sg.Text('Protocol:', size=(8, 1)), sg.Spin(values=list(range(0, 1000)), initial_value=0, size=(6, 1), key='Protocol#'), 
+                      sg.Text('Auth:', size=(8, 1)), sg.Spin(values=list(range(0, 10)), initial_value=0, size=(6, 1), key='Auth')],
+                    [sg.Text('Stage:', size=(8, 1)), sg.Spin(values=list(range(0, 10)), initial_value=0, size=(6, 1), key='Stage'), 
                       sg.Text('Alarm:', size=(8, 1)), sg.Drop(values=('Yes', 'No', None), default_value='None', auto_size_text=True, key='Alarm Status')]])],
 
                   [sg.CB('Augmentations', k='-AUGSCheckbox-', default=False, enable_events=True),

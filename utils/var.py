@@ -131,7 +131,7 @@ def rng():
 
 def rngSeed():
     seed()
-    sequence = [i for i in range(100000)]
+    sequence = list(range(100000))
     subset = sample(sequence, 100)
     for _ in range(1):
         selection = choice(subset)
