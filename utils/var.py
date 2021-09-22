@@ -1,3 +1,4 @@
+from influxdb import InfluxDBClient
 from random import seed
 from random import randint
 from random import sample
@@ -5,13 +6,11 @@ from random import choice
 #from random import random
 #from datetime import datetime
 import PySimpleGUI as sg
-import CommandChoiceMenu
+from utils import CommandChoiceMenu as ccm
 import time
 
-
-
 class commandvals:
-    V0 = None
+    V0 = 0
     V1 = 0
     V2 = 0
     V3 = 0
@@ -65,6 +64,16 @@ class commandvals:
     OS5 = False
     OS6 = False
     OS7 = False
+
+    E0 = False
+    E1 = False
+    E2 = False
+    E3 = False
+    E4 = False
+    E5 = False
+    E6 = False
+    E7 = False
+
     
 
 def mainLoop():
@@ -74,10 +83,10 @@ def mainLoop():
         commandvals.run_time = running_time
         rngSeed()
         rng()
-        CommandChoiceMenu.CommandMenu.CCGUI()
+        ccm.CommandMenu.CCGUI()
         #print('Commands Issued')
-        CommandChoiceMenu.execstats()
-        CommandChoiceMenu.CommandProcWindow()
+        ccm.execstats()
+        ccm.CommandProcWindow()
 
 def valueprinter():
     if commandvals.V0 != None:
@@ -144,31 +153,53 @@ def ClockPrint():
     time.strftime("%H:%M:%S", time.gmtime(commandvals.run_time))
 
 def orderselection():
-    if commandvals.OS0 != False:
+    if commandvals.OS0 == True:
         commandvals.V0 = 0
-      #print('Order: ', commandvals.OS0) 
-    if commandvals.OS1 != False:
+    if commandvals.OS1 == True:
         commandvals.V0 = 1
-      #print('Order: ', commandvals.OS1) 
-    if commandvals.OS2 != False:
+    if commandvals.OS2 == True:
         commandvals.V0 = 2
-      #print('Order: ', commandvals.OS2)
-    if commandvals.OS3 != False:
+    if commandvals.OS3 == True:
         commandvals.V0 = 3
-      #print('Order: ', commandvals.OS3)
-    if commandvals.OS4 != False:
+    if commandvals.OS4 == True:
         commandvals.V0 = 4
-      #print('Order: ', commandvals.OS4)
-    if commandvals.OS5 != False:
+    if commandvals.OS5 == True:
         commandvals.V0 = 5
-      #print('Order: ', commandvals.OS5)
-    if commandvals.OS6 != False:
+    if commandvals.OS6 == True:
         commandvals.V0 = 6
-      #print('Order: ', commandvals.OS6)
-    if commandvals.OS7 != False:
+    if commandvals.OS7 == True:
         commandvals.V0 = 7
-      #print('Order: ', commandvals.OS7)
+    #else:
+        #commandvals.V0 = None
+
+def edictselection():
+    if commandvals.E0 == True:
+        commandvals.V3 = 0
+    if commandvals.E1 == True:
+        commandvals.V3 = 1
+    if commandvals.E2 == True:
+        commandvals.V3 = 2
+    if commandvals.E3 == True:
+        commandvals.V3 = 3
+    if commandvals.E4 == True:
+        commandvals.V3 = 4
+    if commandvals.E5 == True:
+        commandvals.V3 = 5
+    if commandvals.E6 == True:
+        commandvals.V3 = 6
+    if commandvals.E7 == True:
+        commandvals.V3 = 7
 
 def orderentry():
-    CommandChoiceMenu.CommandMenu.values['Order#'] = commandvals.V0
-    print(commandvals.V0)
+    ccm.CommandMenu.values['Order#'] = commandvals.V0
+
+
+class opsMetrics:
+    stat = "Online"
+    
+    opsNum = None
+
+def opsUpdate():
+    opvar = commandvals.V0, commandvals.V1, commandvals.V2, commandvals.V3, commandvals.V4, commandvals.V5, commandvals.V6, commandvals.V7
+    opsMetrics.opsNum = opvar
+    print('Command Sequence: ', opvar)

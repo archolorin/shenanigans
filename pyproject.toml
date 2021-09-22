@@ -8,6 +8,10 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 PySimpleGUI = "^4.47.0"
 PySimpleGUI27 = "^2.4.1"
+influxdb = "^5.3.1"
+anvil-uplink = "^0.3.40"
+anvil = "^0.0.2"
+comt = "^2.6.4"
 
 [tool.poetry.dev-dependencies]
 
