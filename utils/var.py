@@ -89,7 +89,7 @@ def mainLoop():
         ccm.CommandProcWindow()
 
 def valueprinter():
-    if commandvals.V0 != None:
+    if commandvals.V0 is not None:
       commandvals.order = commandvals.V0
       print('Order: ', commandvals.V0) 
     if commandvals.V1 > 0:
@@ -110,7 +110,7 @@ def valueprinter():
     if commandvals.V6 != 0:
       commandvals.stage = commandvals.V6
       print('Stage: ', commandvals.V6)
-    if commandvals.V7 != None:
+    if commandvals.V7 is not None:
       commandvals.alarm = commandvals.V7
       print('Alarm Status: ', commandvals.V7)
     #else:
@@ -153,41 +153,41 @@ def ClockPrint():
     time.strftime("%H:%M:%S", time.gmtime(commandvals.run_time))
 
 def orderselection():
-    if commandvals.OS0 == True:
+    if commandvals.OS0 is True:
         commandvals.V0 = 0
-    if commandvals.OS1 == True:
+    if commandvals.OS1 is True:
         commandvals.V0 = 1
-    if commandvals.OS2 == True:
+    if commandvals.OS2 is True:
         commandvals.V0 = 2
-    if commandvals.OS3 == True:
+    if commandvals.OS3 is True:
         commandvals.V0 = 3
-    if commandvals.OS4 == True:
+    if commandvals.OS4 is True:
         commandvals.V0 = 4
-    if commandvals.OS5 == True:
+    if commandvals.OS5 is True:
         commandvals.V0 = 5
-    if commandvals.OS6 == True:
+    if commandvals.OS6 is True:
         commandvals.V0 = 6
-    if commandvals.OS7 == True:
+    if commandvals.OS7 is True:
         commandvals.V0 = 7
     #else:
         #commandvals.V0 = None
 
 def edictselection():
-    if commandvals.E0 == True:
+    if commandvals.E0 is True:
         commandvals.V3 = 0
-    if commandvals.E1 == True:
+    if commandvals.E1 is True:
         commandvals.V3 = 1
-    if commandvals.E2 == True:
+    if commandvals.E2 is True:
         commandvals.V3 = 2
-    if commandvals.E3 == True:
+    if commandvals.E3 is True:
         commandvals.V3 = 3
-    if commandvals.E4 == True:
+    if commandvals.E4 is True:
         commandvals.V3 = 4
-    if commandvals.E5 == True:
+    if commandvals.E5 is True:
         commandvals.V3 = 5
-    if commandvals.E6 == True:
+    if commandvals.E6 is True:
         commandvals.V3 = 6
-    if commandvals.E7 == True:
+    if commandvals.E7 is True:
         commandvals.V3 = 7
 
 def orderentry():

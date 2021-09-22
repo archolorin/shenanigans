@@ -221,16 +221,16 @@ class CommandMenu:
             var.commandvals.run_time = running_time
             print(time.strftime("%H:%M:%S", time.gmtime(var.commandvals.run_time)))
             
-            if values['-DBGCheckbox-']==True:
+            if values['-DBGCheckbox-'] is True:
                  openWinD()
 
-            if values['-DBGCheckbox-']==False:
+            if values['-DBGCheckbox-'] is False:
                 closeWinD()
 
-            if values['-ORDCheckbox-']==True:
+            if values['-ORDCheckbox-'] is True:
                 openWinO()
                 if event == 'Confirm_Order':
-                    if values['O0'] == True:
+                    if values['O0'] is True:
                         var.commandvals.OS0 = True
                     else:
                         var.commandvals.OS0 = False
@@ -250,10 +250,10 @@ class CommandMenu:
                 if event =='Close_Orders':
                     closeWinO()
 
-            if values['-ORDCheckbox-']==False:
+            if values['-ORDCheckbox-'] is False:
                  closeWinO()
 
-            if values['-EDCCheckbox-']==True:
+            if values['-EDCCheckbox-'] is True:
                 openWinE()
                 if event == 'Confirm_Edict':
                     var.commandvals.E1 = values['E0']
@@ -273,10 +273,10 @@ class CommandMenu:
                 if event =='Close_Edicts':
                     closeWinE()
 
-            if values['-EDCCheckbox-']==False:
+            if values['-EDCCheckbox-'] is False:
                  closeWinE()
 
-            if values['-PTLCheckbox-']==True:
+            if values['-PTLCheckbox-'] is True:
                 openWinP()
                 if event == 'Confirm_Protocol':
                     var.commandvals.E1 = values['P0']
@@ -296,15 +296,15 @@ class CommandMenu:
                 if event =='Close_Protocol':
                     closeWinP()
 
-            if values['-PTLCheckbox-']==False:
+            if values['-PTLCheckbox-'] is False:
                  closeWinP()
 
-            if values['-SALLCheckbox-']==True:
+            if values['-SALLCheckbox-'] is True:
                  openWinAll()
                  window['-CALLCheckbox-'](False)
                  window['-SALLCheckbox-'](False)
 
-            if values['-CALLCheckbox-']==True:
+            if values['-CALLCheckbox-'] is True:
                  closeWinAll()
                  window['-SALLCheckbox-'](False)
                  #window['-CALLCheckbox-'](True)
@@ -341,16 +341,16 @@ class CommandMenu:
                 #print(var.commandvals.order)
                 break
 								
-            if values['-OPTCheckbox-']==True:
+            if values['-OPTCheckbox-'] is True:
                 openOpts()
 
-            if values['-OPTCheckbox-']==False:
+            if values['-OPTCheckbox-'] is False:
                 closeWinAll()
 
-            if values['-AUGSCheckbox-']==True:
+            if values['-AUGSCheckbox-'] is True:
                  openAugs()
 
-            if values['-AUGSCheckbox-']==False:
+            if values['-AUGSCheckbox-'] is False:
                 closeAugs()
 
             if event =='Cancel':
@@ -400,7 +400,7 @@ def CustomMeter():
     for i in range(100):
         # check to see if the cancel button was clicked and exit loop if clicked
         event, values = window.Read(timeout=0, timeout_key='timeout')
-        if event == 'Cancel' or event == None:
+        if event == 'Cancel' or event is None:
             break
         # update bar with loop value +1 so that bar eventually reaches the maximum
         progress_bar.UpdateBar(i+20)
@@ -422,7 +422,7 @@ def CommandProcWindow():
     for i in range(var.commandvals.rvalue):
         # check to see if the cancel button was clicked and exit loop if clicked
         event, values = window.Read(timeout=0, timeout_key='timeout')
-        if event == 'Cancel' or event == None:
+        if event == 'Cancel' or event is None:
             break
         # update bar with loop value +1 so that bar eventually reaches the maximum
         progress_bar.UpdateBar(i+20)
