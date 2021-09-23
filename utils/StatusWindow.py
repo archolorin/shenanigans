@@ -1,12 +1,9 @@
 import PySimpleGUI as sg
 from utils.var import opsMetrics as om
 import utils
-#import time
-
 
 class StatWin:
     sg.theme('darkgrey1')
-
 
     @classmethod
     def statGui(cls):
