@@ -139,7 +139,7 @@ class CommandMenu:
         window = sg.Window('Ai Galactic Command Console', layout, finalize=True, font=("Technic", 12))
         
         def selectNone():
-          window['']
+          pass
 
         def closeWinAll():
             closeWinD()
