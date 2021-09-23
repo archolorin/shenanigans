@@ -9,14 +9,14 @@ class StatWin:
 
 
     @classmethod
-    def statGui(StatWin):
+    def statGui(cls):
         ops = [[
             sg.Frame('Operational Metrics',
                      [[sg.Text('Status:'), sg.T(om.stat)],
                       [sg.T('Current Orders:'),
                        sg.T(om.opsNum)]])
         ], [sg.Submit('Modify'), sg.B('Refresh')]]
-        
+
         layout = [ops]
 
         window = sg.Window('AIGCC Operations', layout)
