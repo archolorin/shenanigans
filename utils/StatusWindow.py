@@ -7,7 +7,8 @@ from utils import functions as fn
 class StatWin:
     sg.theme('darkgrey1')
 
-    def statGui(self):
+    @staticmethod
+    def statGui():
       ops = [
                 [sg.Frame('Operational Metrics', 
                   [[sg.Text('Status:'), sg.T(om.stat)],
