@@ -1,7 +1,7 @@
 from utils import CommandChoiceMenu as ccm
 from utils import var
 from utils import functions as fnc
-import os
+#import os
 #import anvil.server
 
 #anvil.server.connect("server_EANVEB6VHCPTLTPQBJEI6GUL-4EBEHDOKMF5YJHGV")
