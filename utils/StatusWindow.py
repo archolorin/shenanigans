@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 from utils.var import opsMetrics as om
 import utils
 
+
 class StatWin:
 
   
