@@ -1,11 +1,12 @@
-from influxdb import InfluxDBClient
+#from influxdb import InfluxDBClient
 from random import seed
 from random import randint
 from random import sample
 from random import choice
+import os
 #from random import random
 #from datetime import datetime
-import PySimpleGUI as sg
+#import PySimpleGUI as sg
 from utils import CommandChoiceMenu as ccm
 import time
 
@@ -203,3 +204,26 @@ def opsUpdate():
     opvar = commandvals.V0, commandvals.V1, commandvals.V2, commandvals.V3, commandvals.V4, commandvals.V5, commandvals.V6, commandvals.V7
     opsMetrics.opsNum = opvar
     print('Command Sequence: ', opvar)
+
+
+def cmdRef():
+    cmdsq = opsMetrics.opsNum
+    print('OPSCONFIG: ', cmdsq)
+    try:
+      cmdsq == os.environ['Black_Cathedral']
+      if cmdsq == True:
+        print('\n')
+        print('-----Executing Order: ', cmdsq)
+        print('-----CRITICAL EMERGENCY ISSUED-----')
+        print('-_-_-ALL SYSTEMS COMPROMISED-_-_-')
+        print('----------ALL SYSTEMS TERMINATING----------')
+        print('__________WIPING ALL DATA__________')
+        print(os.environ['Black_Cathedral'])
+      ##else:
+        #print('NOPE')
+    except:
+        print('ERROR')
+
+        #except:
+            #print('ERROR')
+            #continue

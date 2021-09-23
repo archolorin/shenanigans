@@ -14,32 +14,31 @@ def mainLoop():
         #print('Commands Issued')
         ccm.execstats()
         ccm.CommandProcWindow()
-				Commands.cmdRef()
+				#var.cmdRef()
         swin.StatWin.statGui()
 
 
 #def executionLoop():
     		#swin.StatWin.statGui()
 
-class Commands:
 
-    def cmdRef():
-        cmdsq = var.opsMetrics.opsNum
-        print('OPSCONFIG: ', cmdsq)
-        try:
-          cmdsq == os.environ['Black_Cathedral']
-        if cmdsq == True:
-            print('\n')
-            print('-----Executing Order: ', cmdsq)
-            print('-----CRITICAL EMERGENCY ISSUED-----')
-            print('-_-_-ALL SYSTEMS COMPROMISED-_-_-')
-            print('----------ALL SYSTEMS TERMINATING----------')
-            print('__________WIPING ALL DATA__________')
-            print(os.environ['Black_Cathedral'])
-          ##else:
-            #print('NOPE')
-        except:
-            print('ERROR')
+def cmdRef():
+    cmdsq = var.opsMetrics.opsNum
+    print('OPSCONFIG: ', cmdsq)
+    try:
+      cmdsq == os.environ['Black_Cathedral']
+      if cmdsq == True:
+        print('\n')
+        print('-----Executing Order: ', cmdsq)
+        print('-----CRITICAL EMERGENCY ISSUED-----')
+        print('-_-_-ALL SYSTEMS COMPROMISED-_-_-')
+        print('----------ALL SYSTEMS TERMINATING----------')
+        print('__________WIPING ALL DATA__________')
+        print(os.environ['Black_Cathedral'])
+      ##else:
+        #print('NOPE')
+    except:
+        print('ERROR')
 
         #except:
             #print('ERROR')
