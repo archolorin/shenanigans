@@ -90,10 +90,10 @@ def mainLoop():
         ccm.CommandProcWindow()
 
 def valueprinter():
-    if commandvals.V0 is not None:
+    if commandvals.V0 is not None or 0:
       commandvals.order = commandvals.V0
       print('Order: ', commandvals.V0) 
-    if commandvals.V1 > 0:
+    if commandvals.V1 is not None or 0:
       commandvals.category = commandvals.V1
       print('Category: ', commandvals.V1) 
     if commandvals.V2 > 0:
@@ -114,8 +114,8 @@ def valueprinter():
     if commandvals.V7 is not None:
       commandvals.alarm = commandvals.V7
       print('Alarm Status: ', commandvals.V7)
-    #else:
-      #print('No Commands Executed')
+    else:
+      print('No Commands Executed')
 
 
 
@@ -209,21 +209,22 @@ def opsUpdate():
 def cmdRef():
     cmdsq = opsMetrics.opsNum
     print('OPSCONFIG: ', cmdsq)
-    try:
-      cmdsq == os.environ['Black_Cathedral']
-      if cmdsq == True:
-        print('\n')
-        print('-----Executing Order: ', cmdsq)
-        print('-----CRITICAL EMERGENCY ISSUED-----')
-        print('-_-_-ALL SYSTEMS COMPROMISED-_-_-')
-        print('----------ALL SYSTEMS TERMINATING----------')
-        print('__________WIPING ALL DATA__________')
-        print(os.environ['Black_Cathedral'])
-      ##else:
-        #print('NOPE')
-    except:
-        print('ERROR')
-
+    while True:
+        print('CM0:: ', os.environ['CM0'])
+        if cmdsq == str(os.environ['CM0']):
+            print('\n')
+            print('-----Executing Order: ', cmdsq)
+            print('-----CRITICAL EMERGENCY ISSUED-----')
+            print('-_-_-ALL SYSTEMS COMPROMISED-_-_-')
+            print('----------ALL SYSTEMS TERMINATING----------')
+            print('__________WIPING ALL DATA__________')
+            print(os.environ['Black_Cathedral'])
+            break
+            ##else:
+            #print('NOPE')
+        else:
+            print('False')
+            break
         #except:
             #print('ERROR')
             #continue

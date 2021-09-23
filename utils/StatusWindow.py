@@ -1,46 +1,31 @@
 import PySimpleGUI as sg
 from utils.var import opsMetrics as om
-from utils import CommandChoiceMenu as ccm
-from utils import functions as fn
+import utils
+import time
 
 
 class StatWin:
     sg.theme('darkgrey1')
 
-    def statGui(self):
+    def statGui():
       ops = [
-                [sg.Frame('Operational Metrics', 
-                  [[sg.Text('Status:'), sg.T(om.stat)],
-                  [sg.T('Current Orders:'), sg.T(om.opsNum)]]
-                  )
-                ],
-                [sg.Submit('Modify'), sg.Button('Refresh', k='refresh', enable_events=True)]
-              ]
+            [sg.Frame('Operational Metrics', 
+            [[sg.Text('Status:'), sg.T(om.stat)], 
+            [sg.T('Current Orders:'), sg.T(om.opsNum)]])], 
+            [sg.Submit('Modify'), sg.B('Refresh')]]
 
-        #statLayout = [sg.Frame('Operating Status', layout = ops)]
+      #statLayout = [sg.Frame('Operating Status', layout = ops)]
         
-        #layout = [ops]
+      layout = [ops]
 
-      window = sg.Window('AIGCC Operations', ops)
-
+      window = sg.Window('AIGCC Operations', layout)
       while True:
-
-				#event, values = window.Read()
-        
-
-        #if event == sg.WIN_CLOSED or event == 'Exit':
-            #quit()
-
-        #if event == 'refresh':
-				    #fn.Commands.cmdRef()
-						#continue
-
-				#if event == 'Modify':
-						#break
-						#window.Close()
-						
-
-
-        window.Close()
-
-            
+          event, values = window.Read()
+          if event == sg.WIN_CLOSED or event == 'Exit':
+              break
+          if event == 'Refresh':
+              utils.var.cmdRef()
+              #time.sleep(1)
+          if event == 'Modify':
+              break
+      window.close()

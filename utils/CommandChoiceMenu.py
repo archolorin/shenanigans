@@ -11,7 +11,7 @@ class CommandMenu:
         return sg.pin(sg.Column(Layout, key=key))
 
 
-    def CCGUI(self):
+    def CCGUI():
         sg.SetOptions(text_justification='right')
         flags = [ 
                   ##__Execution Area__##
@@ -204,8 +204,8 @@ class CommandMenu:
             window['-PTLWindow-'](visible=True)
 
         def resetAll():
-            for key in keys:
-                window[key](None)
+            #for key in keys:
+                #window[key](None)
             closeWinAll()
             window['-SALLCheckbox-'](False)
             window['-CALLCheckbox-'](False)
@@ -220,7 +220,7 @@ class CommandMenu:
             time.strftime("%H:%M:%S", time.gmtime(running_time))
             var.commandvals.run_time = running_time
             print(time.strftime("%H:%M:%S", time.gmtime(var.commandvals.run_time)))
-            
+            window.un_hide
             if values['-DBGCheckbox-'] is True:
                  openWinD()
 
@@ -363,8 +363,7 @@ class CommandMenu:
         #var.valueprinter()
 
         #sg.Popup('lol')
-        window.CloseNonBlocking()
-
+        window.Hide()
 def execstats():
     layout = [
 							[sg.Text('Commands Issued: ')],
