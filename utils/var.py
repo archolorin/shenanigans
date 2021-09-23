@@ -114,8 +114,8 @@ def valueprinter():
     if commandvals.V7 is not None:
       commandvals.alarm = commandvals.V7
       print('Alarm Status: ', commandvals.V7)
-    else:
-      print('No Commands Executed')
+    #else:
+      #print('No Commands Executed')
 
 
 
@@ -199,32 +199,59 @@ class opsMetrics:
     stat = "Online"
     
     opsNum = None
+    cmdsq = 0
+    cmdValid = False
+    OVC = 0
+    orders = [1, 46]
+    opname = "Unknown"
 
 def opsUpdate():
     opvar = commandvals.V0, commandvals.V1, commandvals.V2, commandvals.V3, commandvals.V4, commandvals.V5, commandvals.V6, commandvals.V7
     opsMetrics.opsNum = opvar
+    opsMetrics.cmdsq = opvar
     print('Command Sequence: ', opvar)
+
+    opvarcalc = (commandvals.V0 + commandvals.V1 + commandvals.V2 + commandvals.V3 + commandvals.V4 + commandvals.V5 + commandvals.V6)
+    print('cmdcalc:', opvarcalc)
+    opsMetrics.OVC = opvarcalc
 
 
 def cmdRef():
-    cmdsq = opsMetrics.opsNum
-    print('OPSCONFIG: ', cmdsq)
+    print('OPSCONFIG: ', opsMetrics.cmdsq)
+    
     while True:
-        print('CM0:: ', os.environ['CM0'])
-        if cmdsq == str(os.environ['CM0']):
+        print('\n')
+        print('------cmd ref section-------')
+        print('CM0:: ', opsMetrics.OVC)
+        print('-------------')
+        orderSelector()
+        if opsMetrics.cmdValid == True:
             print('\n')
-            print('-----Executing Order: ', cmdsq)
-            print('-----CRITICAL EMERGENCY ISSUED-----')
-            print('-_-_-ALL SYSTEMS COMPROMISED-_-_-')
-            print('----------ALL SYSTEMS TERMINATING----------')
-            print('__________WIPING ALL DATA__________')
-            print(os.environ['Black_Cathedral'])
+            print('-----Executing Order: ', opsMetrics.OVC)
+            ordName()
             break
             ##else:
             #print('NOPE')
         else:
-            print('False')
+            print('Invalid Command')
             break
         #except:
             #print('ERROR')
             #continue
+
+def orderSelector():
+    print('\n')
+    print('--Order Def Section--')
+    print('inital OVC: ', opsMetrics.OVC)
+    print('inital cmdvalid: ', opsMetrics.cmdValid)
+    for number in opsMetrics.orders:
+        if opsMetrics.OVC == number:
+            opsMetrics.cmdValid = True
+            print('Order Exists: ', number)
+            break
+        else:
+            break
+
+
+def ordName():
+    CM0 = 46

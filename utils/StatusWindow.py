@@ -5,14 +5,13 @@ import utils
 
 class StatWin:
 
-  
     sg.theme('darkgrey1')
 
-    @classmethod
-    def statGui(cls):
-        ops = [[
-            sg.Frame('Operational Metrics',
+    #@classmethod
+    def statGui():
+        ops = [[sg.Frame('Operational Metrics',
                      [[sg.Text('Status:'), sg.T(om.stat)],
+                      [sg.Text('Current Operation: '), sg.T(om.opname)],
                       [sg.T('Current Orders:'),
                        sg.T(om.opsNum)]])
         ], [sg.Submit('Modify'), sg.B('Refresh')]]
@@ -21,8 +20,9 @@ class StatWin:
 
         window = sg.Window('AIGCC Operations', layout)
         while True:
-            event = window.Read()
-            if event in (sg.WIN_CLOSED, 'Exit'):
+            event, values = window.Read()
+            #print(event)
+            if event == sg.WIN_CLOSED:
                 break
             if event == 'Refresh':
                 utils.var.cmdRef()
