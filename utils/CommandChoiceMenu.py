@@ -138,9 +138,6 @@ class CommandMenu:
         keys = ['Order#', 'Category', 'Edict#', 'Priority', 'Protocol#', 'Auth', 'Alarm Status', '-SALLCheckbox-', '-CALLCheckbox-','-ORDCheckbox-','-EDCCheckbox-','-PTLCheckbox-','OK','OEX','OR','OF','OOR','OC','OFL','OS','-DBGCheckbox-']
 
         window = sg.Window('Ai Galactic Command Console', layout, finalize=True, font=("Technic", 12))
-        
-        def selectNone():
-          pass
 
         def closeWinAll():
             closeWinD()
@@ -163,10 +160,6 @@ class CommandMenu:
         def openAugs():
             window['-AUGSCheckbox-'](True)
             window['-AUGWindow-'](visible=True)
-
-        def closeOpts():
-            window['-OPTCheckbox-'](False)
-            window['-OPTWindow-'](visible=False)
 
         def openOpts():
             window['-OPTCheckbox-'](True)
