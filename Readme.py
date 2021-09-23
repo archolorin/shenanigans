@@ -1,2 +1,0 @@
-#This is just a test to gather a bunch of user input through a gui. there are lots of functions and modules i have made to practice with. the goal is to take user data then send it into a database for further processing etc.
-#[![DeepSource](https://deepsource.io/gh/archolorin/shenanigans.svg/?label=active+issues&show_trend=true&token=sm89Z86euvvQSoQc1MVOLf84)](https://deepsource.io/gh/archolorin/shenanigans/?ref=repository-badge)
