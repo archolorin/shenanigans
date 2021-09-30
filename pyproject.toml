@@ -12,6 +12,7 @@ influxdb = "^5.3.1"
 anvil-uplink = "^0.3.40"
 anvil = "^0.0.2"
 comt = "^2.6.4"
+PySimpleGUIWeb = "^0.39.0"
 
 [tool.poetry.dev-dependencies]
 

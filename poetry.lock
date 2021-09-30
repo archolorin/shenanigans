@@ -143,6 +143,17 @@ python-versions = "*"
 future = "*"
 
 [[package]]
+name = "pysimpleguiweb"
+version = "0.39.0"
+description = "A port of PySimpleGUI that runs in a web browser.  Utilizes Remi as the GUI framework"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+remi = "<=2020.3.10"
+
+[[package]]
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
@@ -168,6 +179,14 @@ description = "YAML parser and emitter for Python"
 category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[[package]]
+name = "remi"
+version = "2020.3.10"
+description = "Python REMote Interface library"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
 name = "requests"
@@ -219,7 +238,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ba6c92a8be594cb3249f0d103e6a49243f36fa567b0fffa30f5f9bbc7de3bf3f"
+content-hash = "9380544b747b166662cf7d56fc1a5235158c6052ac892ff7b7d5025418d12fb8"
 
 [metadata.files]
 anvil = [
@@ -354,6 +373,10 @@ pysimplegui27 = [
     {file = "PySimpleGUI27-2.4.1-py3-none-any.whl", hash = "sha256:da179c2e7950f8d6fdf11afcc51871157c1df12e17c727cbc753a4665b7c2cc1"},
     {file = "PySimpleGUI27-2.4.1.tar.gz", hash = "sha256:b7f91c73199cc5bbf121a0950be7745188ab297f89f11c0e4e1478dbbeb648c4"},
 ]
+pysimpleguiweb = [
+    {file = "PySimpleGUIWeb-0.39.0-py3-none-any.whl", hash = "sha256:b9ed4667105a182b7121c1f2106af3eefc49ef4e1ca55555ba588ab3ba517419"},
+    {file = "PySimpleGUIWeb-0.39.0.tar.gz", hash = "sha256:bf678836226fc8450c965fb209bfb04809bbf6275139aa5a71808b07a3fa32c5"},
+]
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
     {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
@@ -392,6 +415,10 @@ pyyaml = [
     {file = "PyYAML-5.4.1-cp39-cp39-win32.whl", hash = "sha256:49d4cdd9065b9b6e206d0595fee27a96b5dd22618e7520c33204a4a3239d5b10"},
     {file = "PyYAML-5.4.1-cp39-cp39-win_amd64.whl", hash = "sha256:c20cfa2d49991c8b4147af39859b167664f2ad4561704ee74c1de03318e898db"},
     {file = "PyYAML-5.4.1.tar.gz", hash = "sha256:607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"},
+]
+remi = [
+    {file = "remi-2020.3.10-py3-none-any.whl", hash = "sha256:73e833090298b446dcb4269ce9ab8078a080db235b4d33674a481c88cb4af1cc"},
+    {file = "remi-2020.3.10.tar.gz", hash = "sha256:4cb8eee398502f547b1ea5cf19304ce46bdc537a29b79066fda3e5d05130fdc4"},
 ]
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},

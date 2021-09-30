@@ -1,6 +1,8 @@
 import sys
 import PySimpleGUI as sg
 from utils import var
+from utils.var import opsMetrics as om
+from utils import StatusWindow as sw
 import time
 
 class CommandMenu:
@@ -25,8 +27,8 @@ class CommandMenu:
                     [sg.Text('Stage:', size=(8, 1)), sg.Spin(values=list(range(0, 10)), initial_value=0, size=(6, 1), key='Stage'), 
                       sg.Text('Alarm:', size=(8, 1)), sg.Drop(values=('Yes', 'No', None), default_value='None', auto_size_text=True, key='Alarm Status')]])],
 
-                  [sg.CB('Augmentations', k='-AUGSCheckbox-', default=False, enable_events=True),
-                   sg.CB('Options', k='-OPTCheckbox-', default=False, enable_events=True)]]
+                  [sg.CB('Augmentations', key='-AUGSCheckbox-', default=False, enable_events=True),
+                   sg.CB('Options', key='-OPTCheckbox-', default=False, enable_events=True)]]
                   
                   #[sg.Frame('Augmentations',
                     #[[sg.Radio('Emergency', 'loss', size=(12, 1)), 
@@ -68,53 +70,52 @@ class CommandMenu:
         
         debug_window =  [
                           [sg.Text(time.strftime("%H:%M:%S", time.gmtime(var.commandvals.run_time)))], 
-                          [sg.Text('Seed: ', key='SEEDS'), 
-                          sg.Text(var.commandvals.rseed)],
-                          [sg.Text('RValue: '),
-                          sg.Text(var.commandvals.rvalue)]
+                          [sg.Text('Seed: ', key='SEEDS'), sg.Text(var.commandvals.rseed), sg.T('            '), sg.Text('RValue: '), sg.Text(var.commandvals.rvalue)],
+                          [sg.Text('Status:'), sg.T(om.stat), sg.T('        '), sg.T('   Alarm:'), sg.T(om.alarmstat)],
+                          [sg.Text('Operation:'), sg.T(om.opname), sg.T(''), sg.T('Override:'), sg.T(sw.StatWin.overrideval)]
                         ]
 
         orders_window = [
-                        [sg.Radio('0', 'orders', k='O0', size=(12, 1))], 
-                        [sg.Radio('1', 'orders', k='O1', size=(20, 1))],
-                        [sg.Radio('2', 'orders', k='O2', size=(12, 1))], 
-                        [sg.Radio('3', 'orders', k='O3', size=(20, 1))],
-                        [sg.Radio('4', 'orders', k='O4', size=(12, 1))], 
-                        [sg.Radio('5', 'orders', k='O5', size=(20, 1))],
-                        [sg.Radio('6', 'orders', k='O6', size=(12, 1))], 
-                        [sg.Radio('7', 'orders', k='O7', size=(20, 1))],
-                        [sg.Button('Confirm', k='Confirm_Order'), sg.Button('Return', k='Close_Orders')]
+                          [sg.Radio('0', 'orders', k='O0', size=(12, 1))], 
+                          [sg.Radio('1', 'orders', k='O1', size=(20, 1))],
+                          [sg.Radio('2', 'orders', k='O2', size=(12, 1))], 
+                          [sg.Radio('3', 'orders', k='O3', size=(20, 1))],
+                          [sg.Radio('4', 'orders', k='O4', size=(12, 1))], 
+                          [sg.Radio('5', 'orders', k='O5', size=(20, 1))],
+                          [sg.Radio('6', 'orders', k='O6', size=(12, 1))], 
+                          [sg.Radio('7', 'orders', k='O7', size=(20, 1))],
+                          [sg.Button('Confirm', k='Confirm_Order'), sg.Button('Return', k='Close_Orders')]
                         ]
 
         edict_window =  [
-                        [sg.Radio('0', 'edicts', k='E0', size=(12, 1))], 
-                        [sg.Radio('1', 'edicts', k='E1', size=(20, 1))],
-                        [sg.Radio('2', 'edicts', k='E2', size=(12, 1))], 
-                        [sg.Radio('3', 'edicts', k='E3', size=(20, 1))],
-                        [sg.Radio('4', 'edicts', k='E4', size=(12, 1))], 
-                        [sg.Radio('5', 'edicts', k='E5', size=(20, 1))],
-                        [sg.Radio('6', 'edicts', k='E6', size=(12, 1))], 
-                        [sg.Radio('7', 'edicts', k='E7', size=(20, 1))],
-                        [sg.Button('Confirm', k='Confirm_Edict'), sg.Button('Return', k='Close_Edicts')]
+                          [sg.Radio('0', 'edicts', k='E0', size=(12, 1))], 
+                          [sg.Radio('1', 'edicts', k='E1', size=(20, 1))],
+                          [sg.Radio('2', 'edicts', k='E2', size=(12, 1))], 
+                          [sg.Radio('3', 'edicts', k='E3', size=(20, 1))],
+                          [sg.Radio('4', 'edicts', k='E4', size=(12, 1))], 
+                          [sg.Radio('5', 'edicts', k='E5', size=(20, 1))],
+                          [sg.Radio('6', 'edicts', k='E6', size=(12, 1))], 
+                          [sg.Radio('7', 'edicts', k='E7', size=(20, 1))],
+                          [sg.Button('Confirm', k='Confirm_Edict'), sg.Button('Return', k='Close_Edicts')]
                         ]    
 
-        protocol_window = [
-                        [sg.Radio('0', 'protocols', k='P0', size=(12, 1))], 
-                        [sg.Radio('1', 'protocols', k='P1', size=(20, 1))],
-                        [sg.Radio('2', 'protocols', k='P2', size=(12, 1))], 
-                        [sg.Radio('3', 'protocols', k='P3', size=(20, 1))],
-                        [sg.Radio('4', 'protocols', k='P4', size=(12, 1))], 
-                        [sg.Radio('5', 'protocols', k='P5', size=(20, 1))],
-                        [sg.Radio('6', 'protocols', k='P6', size=(12, 1))], 
-                        [sg.Radio('7', 'protocols', k='P7', size=(20, 1))],
-                        [sg.Button('Confirm', k='Confirm_Protocol'), sg.Button('Return', k='Close_Protocol')]
+        protocol_win =  [
+                          [sg.Radio('0', 'protocols', k='P0', size=(12, 1))], 
+                          [sg.Radio('1', 'protocols', k='P1', size=(20, 1))],
+                          [sg.Radio('2', 'protocols', k='P2', size=(12, 1))], 
+                          [sg.Radio('3', 'protocols', k='P3', size=(20, 1))],
+                          [sg.Radio('4', 'protocols', k='P4', size=(12, 1))], 
+                          [sg.Radio('5', 'protocols', k='P5', size=(20, 1))],
+                          [sg.Radio('6', 'protocols', k='P6', size=(12, 1))], 
+                          [sg.Radio('7', 'protocols', k='P7', size=(20, 1))],
+                          [sg.Button('Confirm', k='Confirm_Protocol'), sg.Button('Return', k='Close_Protocol')]
                         ]
         ## Option Frames
         console   = [[sg.Frame('Console', layout = flags)]]
         debug     = [[sg.Frame('Debug', layout = debug_window)]]
         orders    = [[sg.Frame('Order Selection', layout = orders_window)]]
         edicts    = [[sg.Frame('Edict Selection', layout = edict_window)]]
-        protocols = [[sg.Frame('Protocol Selection', layout = protocol_window)]]
+        protocols = [[sg.Frame('Protocol Selection', layout = protocol_win)]]
         augs      = [[sg.Frame('Augmentations', layout = aug_window)]]
         options   = [[sg.Frame('Options', layout = option_window)]]
 
@@ -130,7 +131,7 @@ class CommandMenu:
                   CommandMenu.collapse(debug, '-DBGWindow-')
                   ],
                   [[CommandMenu.collapse(augs, '-AUGWindow-'), CommandMenu.collapse(options, '-OPTWindow-')]],
-                  [sg.Submit('Execute'), sg.Button('Clear Options', k='Clear'), sg.Button('Reset'), sg.Cancel()],
+                  [sg.Submit('Execute'), sg.Button('Clear Options', k='Clear'), sg.Button('Reset'), sg.B('Cancel')],
                  ]
 
 
@@ -353,8 +354,8 @@ class CommandMenu:
             if values['-AUGSCheckbox-'] is False:
                 closeAugs()
 
-            if event =='Cancel':
-                window.Close()
+            #if event =='Cancel':
+            #    window.close()
           
         
         #debug values
@@ -377,7 +378,7 @@ def execstats():
               [sg.Submit('Confirm'), sg.Cancel()]
              ]
 
-    window = sg.Window('Execution Confirmation').Layout(layout)
+    window = sg.Window('Execution Confirmation', size=(300, 275)).Layout(layout)
 
     button, values = window.Read()
     if button == 'Cancel':

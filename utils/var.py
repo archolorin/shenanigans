@@ -197,13 +197,13 @@ def orderentry():
 
 class opsMetrics:
     stat = "Online"
-    
     opsNum = None
     cmdsq = 0
     cmdValid = False
     OVC = 0
     orders = [1, 46]
     opname = "Unknown"
+    alarmstat = 'White'
 
 def opsUpdate():
     opvar = commandvals.V0, commandvals.V1, commandvals.V2, commandvals.V3, commandvals.V4, commandvals.V5, commandvals.V6, commandvals.V7
@@ -217,18 +217,14 @@ def opsUpdate():
 
 
 def cmdRef():
+    print('\n')
     print('OPSCONFIG: ', opsMetrics.cmdsq)
     
     while True:
-        print('\n')
-        print('------cmd ref section-------')
-        print('CM0:: ', opsMetrics.OVC)
-        print('-------------')
         orderSelector()
         if opsMetrics.cmdValid == True:
-            print('\n')
             print('-----Executing Order: ', opsMetrics.OVC)
-            ordName()
+            #ordName()
             break
             ##else:
             #print('NOPE')
@@ -240,18 +236,15 @@ def cmdRef():
             #continue
 
 def orderSelector():
-    print('\n')
     print('--Order Def Section--')
-    print('inital OVC: ', opsMetrics.OVC)
-    print('inital cmdvalid: ', opsMetrics.cmdValid)
-    for number in opsMetrics.orders:
-        if opsMetrics.OVC == number:
+    print('OVC: ', opsMetrics.OVC)
+    for v in opsMetrics.orders:
+        print('values in orders:', v)
+        if opsMetrics.OVC == v:
             opsMetrics.cmdValid = True
-            print('Order Exists: ', number)
+            print('Valid: ', opsMetrics.cmdValid)
+            print('Order:', v)
             break
         else:
             break
 
-
-def ordName():
-    CM0 = 46
